@@ -13,7 +13,7 @@ const Button = ({ children, size = "medium", className }: Props) => {
     // 14px
     medium: "text-sm px-5 py-3",
     // 17px
-    large: "text-lg px-8 py-4",
+    large: "text-base px-8 py-4",
   };
 
   return (

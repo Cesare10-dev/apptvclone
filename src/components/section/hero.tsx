@@ -13,7 +13,7 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0]);
 
   return (
-    <div className="relative h-[300vh] bg-background text-white">
+    <div className="relative bg-background text-white">
       <motion.div
         style={{ opacity }}
         ref={videoContainerRef}
@@ -25,8 +25,18 @@ const Hero = () => {
           alt=""
         />
       </motion.div>
-      <Container className="z-10 pb-7 relative min-h-[--hero-height] flex flex-col justify-end items-start">
-        <motion.div>
+      <Container className="z-10 pb-7 relative h-[--hero-height]">
+        <motion.div
+          className="flex flex-col justify-end items-start h-full"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          whileInView="visible"
+          exit="hidden"
+          animate="hidden"
+          viewport={{ amount: 0.9 }}
+        >
           <h1 className="font-bold text-5xl mb-10">
             All App Originals <br />
             Only on AppTv+
